@@ -8,13 +8,11 @@ import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 import com.runner.arthur.dora.RunnerDora;
 
 public class AndroidLauncher extends AndroidApplication implements TalkToTheLauncher {
-	private RunnerDora game;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
 		ApplicationListener myRunningGame = new RunnerDora(this);
-		this.game = game;
 		initialize(myRunningGame, config);
 	}
 
