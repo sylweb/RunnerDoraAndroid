@@ -11,7 +11,7 @@ public enum ItemType {
     private int nbOfAnimFrame;
     private float width;
 
-    private ItemType(int id, float w, int h, int af) {
+    ItemType(int id, float w, int h, int af) {
         this.id = id;
         this.width = w;
         this.height = (float) h;

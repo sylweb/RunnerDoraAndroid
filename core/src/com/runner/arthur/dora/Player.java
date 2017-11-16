@@ -12,6 +12,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 
+@SuppressWarnings("unchecked")
 public class Player {
     protected boolean display;
     protected boolean hasBeenHit;
@@ -60,8 +61,8 @@ public class Player {
         this.walkingSpriteSheet = new Texture(Gdx.files.internal(walkAnimSprite));
         TextureRegion[][] tmp1 = TextureRegion.split(this.walkingSpriteSheet, this.walkingSpriteSheet.getWidth() / walkAnimFrameNb, this.walkingSpriteSheet.getHeight());
         TextureRegion[][] tmp2 = TextureRegion.split(this.walkingSpriteSheet, this.walkingSpriteSheet.getWidth() / walkAnimFrameNb, this.walkingSpriteSheet.getHeight());
-        TextureRegion[] temp1 = new TextureRegion[(walkAnimFrameNb * 1)];
-        TextureRegion[] temp2 = new TextureRegion[(walkAnimFrameNb * 1)];
+        TextureRegion[] temp1 = new TextureRegion[walkAnimFrameNb];
+        TextureRegion[] temp2 = new TextureRegion[walkAnimFrameNb];
         int index = 0;
         for (i = 0; i < 1; i++) {
             int j;
@@ -80,8 +81,8 @@ public class Player {
         this.standSpriteSheet = new Texture(Gdx.files.internal(standAnimSprite));
         tmp1 = TextureRegion.split(this.standSpriteSheet, this.standSpriteSheet.getWidth() / standAnimFrameNb, this.standSpriteSheet.getHeight());
         tmp2 = TextureRegion.split(this.standSpriteSheet, this.standSpriteSheet.getWidth() / standAnimFrameNb, this.standSpriteSheet.getHeight());
-        temp1 = new TextureRegion[(standAnimFrameNb * 1)];
-        temp2 = new TextureRegion[(standAnimFrameNb * 1)];
+        temp1 = new TextureRegion[standAnimFrameNb];
+        temp2 = new TextureRegion[standAnimFrameNb];
         index = 0;
         for (i = 0; i < 1; i++) {
             for (int j = 0; j < standAnimFrameNb; j++) {
@@ -103,8 +104,8 @@ public class Player {
         this.jumpSpriteSheet = new Texture(Gdx.files.internal(jumpAnimSprite));
         TextureRegion[][] tmp1 = TextureRegion.split(this.jumpSpriteSheet, this.jumpSpriteSheet.getWidth() / jumpAnimFrameNb, this.jumpSpriteSheet.getHeight());
         TextureRegion[][] tmp2 = TextureRegion.split(this.jumpSpriteSheet, this.jumpSpriteSheet.getWidth() / jumpAnimFrameNb, this.jumpSpriteSheet.getHeight());
-        TextureRegion[] temp1 = new TextureRegion[(jumpAnimFrameNb * 1)];
-        TextureRegion[] temp2 = new TextureRegion[(jumpAnimFrameNb * 1)];
+        TextureRegion[] temp1 = new TextureRegion[jumpAnimFrameNb];
+        TextureRegion[] temp2 = new TextureRegion[jumpAnimFrameNb];
         int index = 0;
         for (int i = 0; i < 1; i++) {
             for (int j = 0; j < jumpAnimFrameNb; j++) {
@@ -220,6 +221,7 @@ public class Player {
         }
     }
 
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public boolean isJumping() {
         return this.isJumping;
     }

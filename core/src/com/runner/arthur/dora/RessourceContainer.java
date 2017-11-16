@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
+@SuppressWarnings("unchecked")
 public class RessourceContainer {
     public static Animation beeAnimLeft;
     public static Animation beeAnimRight;
@@ -46,7 +47,7 @@ public class RessourceContainer {
         }
         levelTileSet = new Texture(Gdx.files.internal("gfx/land_lvl" + levelNb + "_90_90.png"));
         TextureRegion[][] tmp = TextureRegion.split(levelTileSet, 90, 90);
-        TextureRegion[] temp2 = new TextureRegion[(bloc_level * 1)];
+        TextureRegion[] temp2 = new TextureRegion[bloc_level];
         int index = 0;
         int i = 0;
         while (i < 1) {
@@ -71,8 +72,8 @@ public class RessourceContainer {
             pirateDeadSpriteLeft = new Texture(Gdx.files.internal(Pirate.DEATH_IMG + "_left.png"));
             TextureRegion[][] tmp = TextureRegion.split(pirateSprites, (int) Pirate.SPRITE_WIDTH, (int) Pirate.SPRITE_HEIGHT);
             TextureRegion[][] tmp1 = TextureRegion.split(pirateSprites, (int) Pirate.SPRITE_WIDTH, (int) Pirate.SPRITE_HEIGHT);
-            TextureRegion[] temp2 = new TextureRegion[(Pirate.ANIM_NB_OF_IMG * 1)];
-            TextureRegion[] temp3 = new TextureRegion[(Pirate.ANIM_NB_OF_IMG * 1)];
+            TextureRegion[] temp2 = new TextureRegion[Pirate.ANIM_NB_OF_IMG];
+            TextureRegion[] temp3 = new TextureRegion[Pirate.ANIM_NB_OF_IMG];
             int index = 0;
             for (int i = 0; i < 1; i++) {
                 for (int j = 0; j < Pirate.ANIM_NB_OF_IMG; j++) {
@@ -97,8 +98,8 @@ public class RessourceContainer {
             beeDeadSpriteLeft = new Texture(Gdx.files.internal(Bee.DEATH_IMG + "_left.png"));
             TextureRegion[][] tmp = TextureRegion.split(beeSprites, (int) Bee.SPRITE_WIDTH, (int) Bee.SPRITE_HEIGHT);
             TextureRegion[][] tmp1 = TextureRegion.split(beeSprites, (int) Bee.SPRITE_WIDTH, (int) Bee.SPRITE_HEIGHT);
-            TextureRegion[] temp2 = new TextureRegion[(Bee.ANIM_NB_OF_IMG * 1)];
-            TextureRegion[] temp3 = new TextureRegion[(Bee.ANIM_NB_OF_IMG * 1)];
+            TextureRegion[] temp2 = new TextureRegion[Bee.ANIM_NB_OF_IMG];
+            TextureRegion[] temp3 = new TextureRegion[Bee.ANIM_NB_OF_IMG];
             int index = 0;
             for (int i = 0; i < 1; i++) {
                 for (int j = 0; j < Bee.ANIM_NB_OF_IMG; j++) {
@@ -122,8 +123,8 @@ public class RessourceContainer {
             icTruckDeadSprite = new Texture(Gdx.files.internal(IceCreamTruck.DEATH_IMG));
             TextureRegion[][] tmp = TextureRegion.split(icTruckSprites, (int) IceCreamTruck.SPRITE_WIDTH, (int) IceCreamTruck.SPRITE_HEIGHT);
             TextureRegion[][] tmp1 = TextureRegion.split(icTruckSprites, (int) IceCreamTruck.SPRITE_WIDTH, (int) IceCreamTruck.SPRITE_HEIGHT);
-            TextureRegion[] temp2 = new TextureRegion[(IceCreamTruck.ANIM_NB_OF_IMG * 1)];
-            TextureRegion[] temp3 = new TextureRegion[(IceCreamTruck.ANIM_NB_OF_IMG * 1)];
+            TextureRegion[] temp2 = new TextureRegion[IceCreamTruck.ANIM_NB_OF_IMG];
+            TextureRegion[] temp3 = new TextureRegion[IceCreamTruck.ANIM_NB_OF_IMG];
             int index = 0;
             for (int i = 0; i < 1; i++) {
                 for (int j = 0; j < IceCreamTruck.ANIM_NB_OF_IMG; j++) {

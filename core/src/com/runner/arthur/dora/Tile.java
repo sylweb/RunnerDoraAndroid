@@ -34,6 +34,7 @@ public class Tile {
         return this.id;
     }
 
+    @SuppressWarnings("SuspiciousNameCombination")
     public float calculateYVelocity(float playerXVelocity) {
         switch (this.id) {
             case 0:

@@ -13,7 +13,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Level {
-    public ArrayList<Ennemy> ennemies = new ArrayList();
+    public ArrayList<Ennemy> ennemies = new ArrayList<Ennemy>();
     protected Tile[][] map;
     protected int mapXElement = 0;
     protected int mapYElement = 0;
@@ -68,7 +68,7 @@ public class Level {
                 }
             default:
                 System.exit(1);
-                return;
+                break;
         }
     }
 
@@ -81,7 +81,7 @@ public class Level {
             int j;
             String[] values = lines[i].split(cvsSplitBy);
             for (j = 0; j < values.length; j++) {
-                data[i][j] = Integer.valueOf(values[j]).intValue();
+                data[i][j] = Integer.valueOf(values[j]);
             }
         }
         this.map = (Tile[][]) Array.newInstance(Tile.class, new int[]{this.mapYElement, this.mapXElement});
@@ -105,7 +105,7 @@ public class Level {
             int j;
             String[] values = lines[i].split(cvsSplitBy);
             for (j = 0; j < values.length; j++) {
-                data[i][j] = Integer.valueOf(values[j]).intValue();
+                data[i][j] = Integer.valueOf(values[j]);
             }
         }
         for (i = 0; i < this.mapYElement; i++) {
@@ -146,7 +146,7 @@ public class Level {
         for (i = 0; i < lines.length; i++) {
             String[] values = lines[i].split(cvsSplitBy);
             for (j = 0; j < values.length; j++) {
-                data[i][j] = Integer.valueOf(values[j]).intValue();
+                data[i][j] = Integer.valueOf(values[j]);
             }
         }
         for (i = 0; i < this.mapYElement; i++) {
@@ -200,19 +200,19 @@ public class Level {
             i++;
         }
         for (i = 0; i < this.ennemies.size(); i++) {
-            ((Ennemy) this.ennemies.get(i)).render(batch, shape);
+            this.ennemies.get(i).render(batch, shape);
         }
     }
 
     public void update() {
         for (int i = 0; i < this.ennemies.size(); i++) {
-            ((Ennemy) this.ennemies.get(i)).update();
+            this.ennemies.get(i).update();
         }
     }
 
     public ArrayList<Tile> getTiles() {
         Polygon camPoly = ShapeTools.rectangleToPolygon(new Rectangle(RunnerDora.camera.position.x - (RunnerDora.camera.viewportWidth / 2.0f), RunnerDora.camera.position.y - (RunnerDora.camera.viewportHeight / 2.0f), RunnerDora.camera.viewportWidth, RunnerDora.camera.viewportHeight));
-        ArrayList<Tile> tiles = new ArrayList();
+        ArrayList<Tile> tiles = new ArrayList<Tile>();
         int i = 0;
         while (i < this.mapYElement) {
             int j = 0;
