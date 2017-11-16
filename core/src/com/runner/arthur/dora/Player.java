@@ -255,11 +255,6 @@ public class Player {
         this.isFalling = false;
     }
 
-    public void setPosition(Rectangle rec) {
-        this.position.setX(rec.getX());
-        this.position.setY(rec.getY());
-    }
-
     public void setXVelocity(float velocity) {
         if (this.xVelocity != GameConstants.MOVE_NOT) {
             this.lastXVelocity = this.xVelocity;
@@ -273,10 +268,6 @@ public class Player {
 
     public void setYVelocity(float velocity) {
         this.yVelocity = velocity;
-    }
-
-    public float getYVelocity() {
-        return this.yVelocity;
     }
 
     public Rectangle getHitBox() {
@@ -311,10 +302,6 @@ public class Player {
 
     public int getScore() {
         return this.score;
-    }
-
-    public int getMultiplier() {
-        return this.multiplier;
     }
 
     public int getLife() {
