@@ -67,11 +67,11 @@ public class RunnerDora extends ApplicationAdapter implements ControllerListener
 	}
 
 	public void loadGame() {
-		RessourceContainer.loadLibGdxLogo();
+		ResourceContainer.loadLibGdxLogo();
 		this.myBack = new Background();
 		this.currentLevel = new Level(3);
 		createPlayer();
-		RessourceContainer.loadPlayerLifeHeart();
+		ResourceContainer.loadPlayerLifeHeart();
 		this.mediumFont = new BitmapFont(Gdx.files.internal("mediumFont.fnt"), Gdx.files.internal("mediumFont.png"), false);
 		this.mediumFont.getData().setScale(1.5f);
 		this.bigFont = new BitmapFont(Gdx.files.internal("bigFont.fnt"), Gdx.files.internal("bigFont.png"), false);
@@ -89,7 +89,7 @@ public class RunnerDora extends ApplicationAdapter implements ControllerListener
 		this.rightArrowRec = new Rectangle();
 		this.leftArrowSprite = new Texture(Gdx.files.internal("gfx/arrow_left_blue.png"));
 		this.leftArrowRec = new Rectangle();
-		this.libGdxScreen = new SplashScreen(6.0f, RessourceContainer.libGdxLogo);
+		this.libGdxScreen = new SplashScreen(6.0f, ResourceContainer.libGdxLogo);
 		this.libGdxScreen.start(this.gameTime);
 	}
 
@@ -126,7 +126,7 @@ public class RunnerDora extends ApplicationAdapter implements ControllerListener
 			if (life < 0) {
 				life = 0;
 			}
-			this.batch.draw((TextureRegion)RessourceContainer.playerHeartAnim.getKeyFrames()[life], x_pos, y_pos);
+			this.batch.draw((TextureRegion) ResourceContainer.playerHeartAnim.getKeyFrames()[life], x_pos, y_pos);
 			if (status == GameStatus.PLAYER_DIED) {
 				this.bigFont.setColor(Color.RED);
 				this.bigFont.draw(this.batch, "GAME OVER", camera.position.x - (this.game_over_text_width / 2.0f), camera.position.y + (this.game_over_text_height / 2.0f));
@@ -183,7 +183,7 @@ public class RunnerDora extends ApplicationAdapter implements ControllerListener
 		} else {
 			this.myPlayer.stopFall();
 		}
-		ArrayList<Ennemy> e = this.currentLevel.getEnnemies();
+		ArrayList<Enemy> e = this.currentLevel.getEnemies();
 		i = 0;
 		while (i < e.size()) {
 			if (e.get(i).getHitBox().overlaps(this.myPlayer.getJumpBox()) && !this.myPlayer.isJumping()) {
@@ -332,7 +332,7 @@ public class RunnerDora extends ApplicationAdapter implements ControllerListener
 		int i;
 		camera.position.set(this.viewport.getWorldWidth() / 2.0f, this.viewport.getWorldHeight() / 2.0f, 0.0f);
 		createPlayer();
-		ArrayList<Ennemy> e = this.currentLevel.getEnnemies();
+		ArrayList<Enemy> e = this.currentLevel.getEnemies();
 		for (i = 0; i < e.size(); i++) {
 			e.get(i).reset();
 		}

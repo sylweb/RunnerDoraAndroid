@@ -3,7 +3,7 @@ package com.runner.arthur.dora;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-public class Pirate extends Ennemy {
+public class Pirate extends Enemy {
     public static int ANIMATION_SPEED = 50;
     public static String ANIM_IMG = "gfx/pirate_walk.png";
     public static int ANIM_NB_OF_IMG = 6;
@@ -16,7 +16,7 @@ public class Pirate extends Ennemy {
     public static float VELOCITY_X = 2.0f;
 
     public Pirate(float x, float y) {
-        super(x, y, SPRITE_WIDTH, SPRITE_HEIGHT, LIFE, DELTA_X_MOVE, DELTA_Y_MOVE, RessourceContainer.pirateAnimLeft, RessourceContainer.pirateAnimRight, RessourceContainer.pirateDeadSpriteLeft, RessourceContainer.pirateDeadSpriteRight, VELOCITY_X);
+        super(x, y, SPRITE_WIDTH, SPRITE_HEIGHT, LIFE, DELTA_X_MOVE, DELTA_Y_MOVE, ResourceContainer.pirateAnimLeft, ResourceContainer.pirateAnimRight, ResourceContainer.pirateDeadSpriteLeft, ResourceContainer.pirateDeadSpriteRight, VELOCITY_X);
         Vector2 vec = new Vector2();
         this.position.getCenter(vec);
         this.hitBox = new Rectangle(vec.x - (0.2f * this.position.getWidth()), vec.y + (0.05f * this.position.getHeight()), 0.4f * this.position.getWidth(), 0.4f * this.position.getHeight());

@@ -22,22 +22,22 @@ public class Item {
         if (this.typeId == ItemType.RED_ICE_CREAM.getTypeId()) {
             w = ItemType.RED_ICE_CREAM.getWidth();
             h = ItemType.RED_ICE_CREAM.getHeight();
-            this.animatedSprite = RessourceContainer.redIceCreamAnim;
+            this.animatedSprite = ResourceContainer.redIceCreamAnim;
             this.collectable = true;
         } else if (this.typeId == ItemType.GOLD_COIN.getTypeId()) {
             w = ItemType.GOLD_COIN.getWidth();
             h = ItemType.GOLD_COIN.getHeight();
-            this.animatedSprite = RessourceContainer.goldCoinAnim;
+            this.animatedSprite = ResourceContainer.goldCoinAnim;
             this.collectable = true;
         } else if (this.typeId == ItemType.YELLOW_FLAG.getTypeId()) {
             w = ItemType.YELLOW_FLAG.getWidth();
             h = ItemType.YELLOW_FLAG.getHeight();
-            this.animatedSprite = RessourceContainer.yellowFlagAnim;
+            this.animatedSprite = ResourceContainer.yellowFlagAnim;
             this.collectable = false;
         } else if (this.typeId == ItemType.GREEN_FLAG.getTypeId()) {
             w = ItemType.GREEN_FLAG.getWidth();
             h = ItemType.GREEN_FLAG.getHeight();
-            this.animatedSprite = RessourceContainer.greenFlagAnim;
+            this.animatedSprite = ResourceContainer.greenFlagAnim;
             this.collectable = false;
         }
         this.position = new Rectangle(x, y, w, h);

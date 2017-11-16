@@ -13,7 +13,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Level {
-    public ArrayList<Ennemy> ennemies = new ArrayList<Ennemy>();
+    public ArrayList<Enemy> enemies = new ArrayList<Enemy>();
     protected Tile[][] map;
     protected int mapXElement = 0;
     protected int mapYElement = 0;
@@ -22,7 +22,7 @@ public class Level {
     protected int tileWidth = 0;
 
     public Level(int levelNb) {
-        RessourceContainer.loadLevelTiles(levelNb);
+        ResourceContainer.loadLevelTiles(levelNb);
         switch (levelNb) {
             case 1:
                 this.tileWidth = 90;
@@ -32,7 +32,7 @@ public class Level {
                 this.nbOfTilesInSet = 3;
                 try {
                     readMap("level/dora-lvl1_land.csv");
-                    readEnnemies("level/dora-lvl1_ennemies.csv");
+                    readEnemies("level/dora-lvl1_enemies.csv");
                     return;
                 } catch (Exception e) {
                     System.exit(-1);
@@ -59,7 +59,7 @@ public class Level {
                 this.nbOfTilesInSet = 5;
                 try {
                     readMap("level/dora-lvl3_land.csv");
-                    readEnnemies("level/dora-lvl3_ennemies.csv");
+                    readEnemies("level/dora-lvl3_enemies.csv");
                     readItems("level/dora-lvl3_items.csv");
                     return;
                 } catch (Exception e3) {
@@ -96,11 +96,11 @@ public class Level {
         }
     }
 
-    private void readEnnemies(String ennemyData) throws Exception {
+    private void readEnemies(String enemyData) throws Exception {
         int i;
         String cvsSplitBy = ",";
         int[][] data = (int[][]) Array.newInstance(Integer.TYPE, new int[]{this.mapYElement, this.mapXElement});
-        String[] lines = Gdx.files.internal(ennemyData).readString().split("\r\n");
+        String[] lines = Gdx.files.internal(enemyData).readString().split("\r\n");
         for (i = 0; i < lines.length; i++) {
             int j;
             String[] values = lines[i].split(cvsSplitBy);
@@ -117,17 +117,17 @@ public class Level {
                         case 0:
                             x -= Bee.SPRITE_WIDTH - ((float) this.tileWidth);
                             y += (2.0f * Bee.SPRITE_HEIGHT) - ((float) this.tileHeight);
-                            RessourceContainer.loadBee();
-                            this.ennemies.add(new Bee(x, y));
+                            ResourceContainer.loadBee();
+                            this.enemies.add(new Bee(x, y));
                             break;
                         case 1:
                             x -= Pirate.SPRITE_WIDTH - ((float) this.tileWidth);
-                            RessourceContainer.loadPirate();
-                            this.ennemies.add(new Pirate(x, y));
+                            ResourceContainer.loadPirate();
+                            this.enemies.add(new Pirate(x, y));
                             break;
                         case 2:
-                            RessourceContainer.loadIceCreamTruck();
-                            this.ennemies.add(new IceCreamTruck(x, y));
+                            ResourceContainer.loadIceCreamTruck();
+                            this.enemies.add(new IceCreamTruck(x, y));
                             break;
                         default:
                             break;
@@ -156,19 +156,19 @@ public class Level {
                     float y = (float) ((this.mapYElement - (i + 1)) * this.tileHeight);
                     switch (data[i][j]) {
                         case 0:
-                            RessourceContainer.loadIceCreamItem();
+                            ResourceContainer.loadIceCreamItem();
                             RunnerDora.items.add(new Item(x, y, ItemType.RED_ICE_CREAM.getTypeId()));
                             break;
                         case 1:
-                            RessourceContainer.loadGoldCoinItem();
+                            ResourceContainer.loadGoldCoinItem();
                             RunnerDora.items.add(new Item(x, y + (ItemType.GOLD_COIN.getHeight() / 2.0f), ItemType.GOLD_COIN.getTypeId()));
                             break;
                         case 2:
-                            RessourceContainer.loadYellowFlagItem();
+                            ResourceContainer.loadYellowFlagItem();
                             RunnerDora.items.add(new Item(x, y, ItemType.YELLOW_FLAG.getTypeId()));
                             break;
                         case 3:
-                            RessourceContainer.loadGreenFlagItem();
+                            ResourceContainer.loadGreenFlagItem();
                             RunnerDora.items.add(new Item(x, y, ItemType.GREEN_FLAG.getTypeId()));
                             break;
                         default:
@@ -187,7 +187,7 @@ public class Level {
             while (j < this.mapXElement) {
                 if (this.map[i][j] != null && Intersector.overlapConvexPolygons(this.map[i][j].getHitBox(), camPoly)) {
                     batch.begin();
-                    batch.draw((TextureRegion)RessourceContainer.levelTiles.getKeyFrames()[this.map[i][j].getId()], this.map[i][j].getDrawBox().getX(), this.map[i][j].getDrawBox().getY());
+                    batch.draw((TextureRegion) ResourceContainer.levelTiles.getKeyFrames()[this.map[i][j].getId()], this.map[i][j].getDrawBox().getX(), this.map[i][j].getDrawBox().getY());
                     batch.end();
                     if (GameSettings.DEBUG_MODE && this.map[i][j] != null) {
                         shape.begin(ShapeType.Line);
@@ -199,14 +199,14 @@ public class Level {
             }
             i++;
         }
-        for (i = 0; i < this.ennemies.size(); i++) {
-            this.ennemies.get(i).render(batch, shape);
+        for (i = 0; i < this.enemies.size(); i++) {
+            this.enemies.get(i).render(batch, shape);
         }
     }
 
     public void update() {
-        for (int i = 0; i < this.ennemies.size(); i++) {
-            this.ennemies.get(i).update();
+        for (int i = 0; i < this.enemies.size(); i++) {
+            this.enemies.get(i).update();
         }
     }
 
@@ -235,8 +235,8 @@ public class Level {
         return this.mapYElement;
     }
 
-    public ArrayList<Ennemy> getEnnemies() {
-        return this.ennemies;
+    public ArrayList<Enemy> getEnemies() {
+        return this.enemies;
     }
 
     public int getTileHeight() {

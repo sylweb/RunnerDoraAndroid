@@ -10,7 +10,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-public abstract class Ennemy {
+public abstract class Enemy {
     protected float VELOCITY_X = 0.0f;
     protected float VELOCITY_Y = 0.0f;
     protected Animation animLeft = null;
@@ -27,7 +27,7 @@ public abstract class Ennemy {
     protected float xOrig;
     protected float yOrig;
 
-    public Ennemy(float x, float y, float w, float h, int life, float deltaX, float deltaY, Animation animLeft, Animation animRight, Texture deadSpriteLeft, Texture deadSpriteRight, float velocityX) {
+    public Enemy(float x, float y, float w, float h, int life, float deltaX, float deltaY, Animation animLeft, Animation animRight, Texture deadSpriteLeft, Texture deadSpriteRight, float velocityX) {
         this.animLeft = animLeft;
         this.animRight = animRight;
         this.deadSpriteLeft = deadSpriteLeft;

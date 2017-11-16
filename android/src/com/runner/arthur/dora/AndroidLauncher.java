@@ -22,6 +22,6 @@ public class AndroidLauncher extends AndroidApplication implements TalkToTheLaun
 		System.exit(0);
 	}
 
-	public void dataTransfert(String dataCode) {
+	public void dataTransfer(String dataCode) {
 	}
 }

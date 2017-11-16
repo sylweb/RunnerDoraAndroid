@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 @SuppressWarnings("unchecked")
-public class RessourceContainer {
+public class ResourceContainer {
     public static Animation beeAnimLeft;
     public static Animation beeAnimRight;
     public static Texture beeDeadSpriteLeft;
